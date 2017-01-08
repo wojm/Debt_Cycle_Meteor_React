@@ -7,6 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import { Tasks } from '../api/tasks.js';
 
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import FBLogin from './FBLogin.jsx';
 import Task from './Task.jsx';
 
 // App component - represents the whole app
@@ -18,6 +19,9 @@ class App extends Component {
     this.state = {
       hideCompleted: false,
     };
+  }
+  currentUser() {
+    return Meteor.user();
   }
 
   handleSubmit(event) {
@@ -76,7 +80,7 @@ class App extends Component {
             Hide Completed Tasks
           </label>
 
-          <AccountsUIWrapper />
+          <FBLogin />
 
           { this.props.currentUser ?
             <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
