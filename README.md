@@ -13,3 +13,5 @@ Login with Facebook
  - http://stackoverflow.com/questions/10464317/getting-facebook-authentication-running-within-the-meteorjs-framework
 Access Friends List (TODO)
  - http://stackoverflow.com/questions/28050304/how-do-i-access-a-users-facebook-friends-list-in-meteor
+Chess Drag and Drop
+ - <Board knightPosition={[0, 0]} />

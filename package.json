@@ -5,13 +5,24 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "autoprefixer": "^6.6.1",
     "babel-runtime": "6.18.0",
     "bcrypt": "^1.0.2",
     "classnames": "^2.2.5",
+    "expect": "^1.20.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "faker": "^3.1.0",
+    "hoist-non-react-statics": "^1.2.0",
+    "marked": "^0.3.6",
     "meteor-node-stubs": "~0.2.0",
-    "react": "^15.4.1",
+    "postcss": "^5.2.8",
+    "react": "^15.4.2",
     "react-addons-pure-render-mixin": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
+    "react-dnd-test-backend": "^1.0.2",
+    "react-dom": "^15.4.1",
+    "webpack": "^1.14.0"
   },
   "description": "Debt Cycle",
   "version": "1.0.0",
