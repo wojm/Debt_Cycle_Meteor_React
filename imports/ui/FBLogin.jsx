@@ -25,9 +25,9 @@ export default class FBLogin extends Component {
 
   render() {
     var user = Meteor.user();
-    return (
 
-      <div className="container">
+    return (
+      <div>
         { user ?
           <div>
             <span> {user.profile.name} </span>
@@ -39,9 +39,9 @@ export default class FBLogin extends Component {
           <button onClick={this.login}>
             Log In
           </button>
-
         }
       </div>
     )
   }
+
 }

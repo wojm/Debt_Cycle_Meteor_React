@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 
 import { Tasks } from '../api/tasks.js';
 
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import FBLogin from './FBLogin.jsx';
 import Task from './Task.jsx';
 
@@ -19,9 +18,6 @@ class App extends Component {
     this.state = {
       hideCompleted: false,
     };
-  }
-  currentUser() {
-    return Meteor.user();
   }
 
   handleSubmit(event) {

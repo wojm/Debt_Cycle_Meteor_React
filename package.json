@@ -1,5 +1,5 @@
 {
-  "name": "Debt-Cycle",
+  "name": "debtcycle",
   "private": true,
   "scripts": {
     "start": "meteor run"
@@ -12,5 +12,26 @@
     "react": "^15.4.1",
     "react-addons-pure-render-mixin": "^15.4.1",
     "react-dom": "^15.4.1"
-  }
+  },
+  "description": "Debt Cycle",
+  "version": "1.0.0",
+  "main": "main.jsx",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wojm/Debt_Cycle_Meteor_React.git"
+  },
+  "keywords": [
+    "debt",
+    "cycle",
+    "meteor",
+    "react",
+    "barter"
+  ],
+  "author": "Matt Wojo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wojm/Debt_Cycle_Meteor_React/issues"
+  },
+  "homepage": "https://github.com/wojm/Debt_Cycle_Meteor_React#readme"
 }
