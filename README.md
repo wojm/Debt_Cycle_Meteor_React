@@ -14,4 +14,4 @@ Login with Facebook
 Access Friends List (TODO)
  - http://stackoverflow.com/questions/28050304/how-do-i-access-a-users-facebook-friends-list-in-meteor
 Chess Drag and Drop
- - <Board knightPosition={[0, 0]} />
+ - http://gaearon.github.io/react-dnd/examples-chessboard-tutorial-app.html
