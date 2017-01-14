@@ -7,9 +7,12 @@ import App from '../imports/ui/App.jsx';
 
 import '../imports/startup/accounts-config.js';
 
-import Board from '../imports/ui/Chess/Board.js';
+import Board from '../imports/ui/Chess/Board';
 
 
 Meteor.startup(() => {
-  render(<Board knightPosition={[0, 0]} />, document.getElementById('render-target'));
+  render(
+    <Board knightPosition={[1,0]} />,
+    document.getElementById('render-target')
+  );
 });
