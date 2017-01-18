@@ -11,8 +11,8 @@ export default class Square extends Component {
       <div style={{
         backgroundColor: fill,
         color: stroke,
-        width: '50',
-        height: '50'
+        width: '100%',
+        height: '100%'
       }}>
         {this.props.children}
       </div>

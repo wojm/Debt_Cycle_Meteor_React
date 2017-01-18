@@ -8,11 +8,15 @@ import App from '../imports/ui/App.jsx';
 import '../imports/startup/accounts-config.js';
 
 import Board from '../imports/ui/Chess/Board';
+import { observe } from '../imports/ui/Chess/Game';
+
 
 
 Meteor.startup(() => {
-  render(
-    <Board knightPosition={[1,0]} />,
-    document.getElementById('render-target')
+  observe(knightPosition =>
+    render(
+      <Board knightPosition={knightPosition} />,
+      document.getElementById('render-target')
+    )
   );
 });
