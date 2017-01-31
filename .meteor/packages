@@ -23,3 +23,4 @@ accounts-ui
 practicalmeteor:mocha
 accounts-facebook
 service-configuration
+erasaur:meteor-lodash

@@ -8,15 +8,18 @@ import App from '../imports/ui/App.jsx';
 import '../imports/startup/accounts-config.js';
 
 import Board from '../imports/ui/Chess/Board';
+import DraggableList from '../imports/ui/SimpleCard/Container.jsx';
+
+
 import { observe } from '../imports/ui/Chess/Game';
 
 
 
 Meteor.startup(() => {
-  observe(knightPosition =>
+  //observe(knightPosition =>
     render(
-      <Board knightPosition={knightPosition} />,
+      <DraggableList />,
       document.getElementById('render-target')
     )
-  );
+  //);
 });
