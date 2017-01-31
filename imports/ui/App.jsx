@@ -9,6 +9,8 @@ import { Tasks } from '../api/tasks.js';
 import FBLogin from './FBLogin.jsx';
 import Task from './Task.jsx';
 
+import Container from './Container.jsx';
+
 // App component - represents the whole app
 class App extends Component {
 
@@ -89,6 +91,7 @@ class App extends Component {
           }
         </header>
 
+        <Container />
         <ul>
           {this.renderTasks()}
         </ul>
