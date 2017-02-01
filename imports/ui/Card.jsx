@@ -69,23 +69,7 @@ const cardTarget = {
   },
 };
 
-/*@DropTarget(ItemTypes.CARD, cardTarget, connect => ({
-  connectDropTarget: connect.dropTarget(),
-}))
-@DragSource(ItemTypes.CARD, cardSource, (connect, monitor) => ({
-  connectDragSource: connect.dragSource(),
-  isDragging: monitor.isDragging(),
-}))*/
-/*export default */ class Card extends Component {
-  /*static propTypes = {
-    connectDragSource: PropTypes.func.isRequired,
-    connectDropTarget: PropTypes.func.isRequired,
-    index: PropTypes.number.isRequired,
-    isDragging: PropTypes.bool.isRequired,
-    id: PropTypes.any.isRequired,
-    text: PropTypes.string.isRequired,
-    moveCard: PropTypes.func.isRequired,
-  };*/
+class Card extends Component {
 
   render() {
     const { text, isDragging, connectDragSource, connectDropTarget } = this.props;

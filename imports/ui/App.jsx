@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-import { Tasks } from '../api/tasks.js';
+//import { Tasks } from '../api/tasks.js';
 
 import FBLogin from './FBLogin.jsx';
-import Task from './Task.jsx';
+//import Task from './Task.jsx';
 
 import Container from './Container.jsx';
 
@@ -40,7 +40,8 @@ class App extends Component {
     });
   }
 
-  renderTasks() {
+
+  /*renderTasks() {
     let filteredTasks = this.props.tasks;
 
     if (this.state.hideCompleted) {
@@ -60,7 +61,8 @@ class App extends Component {
         />
       );
     });
-  }
+  }*/
+
 
   render() {
     return (
@@ -92,27 +94,24 @@ class App extends Component {
         </header>
 
         <Container />
-        <ul>
-          {this.renderTasks()}
-        </ul>
+
       </div>
     );
   }
 }
 
 App.propTypes = {
-  tasks: PropTypes.array.isRequired,
-  incompleteCount: PropTypes.number.isRequired,
+
   currentUser: PropTypes.object,
 
 };
 
 export default createContainer(() => {
-  Meteor.subscribe('tasks');
+  //Meteor.subscribe('tasks');
 
   return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
+    //tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+    //incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     currentUser: Meteor.user(),
   };
 }, App);
