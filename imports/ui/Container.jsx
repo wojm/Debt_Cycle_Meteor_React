@@ -74,7 +74,7 @@ class Container extends Component {
   renderTasks() {
     let filteredTasks = this.props.tasks;
 
-    if (this.state.hideCompleted) {
+    if (this.props.hideCompleted) {
       filteredTasks = filteredTasks.filter(task => !task.checked);
     }
 
@@ -109,6 +109,7 @@ Container.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   currentUser: PropTypes.object,
+  hideCompleted: PropTypes.bool.isRequired
 
 }
 

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
-//import { Tasks } from '../api/tasks.js';
+import { Tasks } from '../api/tasks.js';
 
 import FBLogin from './FBLogin.jsx';
 //import Task from './Task.jsx';
@@ -93,7 +93,7 @@ class App extends Component {
           }
         </header>
 
-        <Container />
+        <Container hideCompleted={this.state.hideCompleted}/>
 
       </div>
     );
@@ -103,6 +103,7 @@ class App extends Component {
 App.propTypes = {
 
   currentUser: PropTypes.object,
+  hideCompleted: PropTypes.object
 
 };
 
@@ -111,7 +112,7 @@ export default createContainer(() => {
 
   return {
     //tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    //incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
+    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     currentUser: Meteor.user(),
   };
 }, App);
