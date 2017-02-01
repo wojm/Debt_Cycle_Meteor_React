@@ -113,7 +113,6 @@ Container.propTypes = {
 
 }
 
-//export default DragDropContext(HTML5Backend)(Container);
 
 export default createContainer(() => {
   Meteor.subscribe('tasks');

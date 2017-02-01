@@ -1,14 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
+
 import { Tasks } from '../api/tasks.js';
 
-import FBLogin from './FBLogin.jsx';
-//import Task from './Task.jsx';
 
+import FBLogin from './FBLogin.jsx';
 import Container from './Container.jsx';
 
 // App component - represents the whole app
@@ -109,9 +108,9 @@ App.propTypes = {
 
 export default createContainer(() => {
   //Meteor.subscribe('tasks');
+  // TODO is this necessary
 
   return {
-    //tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
     incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     currentUser: Meteor.user(),
   };
