@@ -47,7 +47,7 @@ class Container extends Component {
 
   moveCard(dragIndex, hoverIndex) {
     const { cards } = this.state;
-    const dragCard = tasks[dragIndex];
+    const dragCard = cards[dragIndex];
 
     this.setState(update(this.state, {
       cards: {
