@@ -44,5 +44,14 @@ LINKS & TUTORIALS
     - http://stackoverflow.com/questions/10464317/getting-facebook-authentication-running-within-the-meteorjs-framework
   - Chess Drag and Drop
     - http://gaearon.github.io/react-dnd/examples-chessboard-tutorial-app.html
+  - React Drag and Drop
+    - https://react-dnd.github.io/react-dnd/
   - Reactive Data
     - https://guide.meteor.com/react.html#data
+    - https://kadira.io/academy/meteor-routing-guide/content/subscriptions-and-data-management/with-react
+  - Props and state
+    - Contradictory to last post.. better understanding needs to be resolved
+    - https://themeteorchef.com/tutorials/understanding-props-and-state-in-react
+    - http://stackoverflow.com/questions/30668326/what-is-the-difference-between-using-constructor-vs-getinitialstate-in-react-r
+    - https://facebook.github.io/react-native/docs/state.html
+    - https://facebook.github.io/react/docs/jsx-in-depth.html
