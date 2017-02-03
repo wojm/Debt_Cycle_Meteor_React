@@ -113,5 +113,6 @@ export default createContainer(() => {
   return {
     incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     currentUser: Meteor.user(),
+
   };
 }, App);

@@ -36,7 +36,7 @@ export default class Task extends Component {
         </button>
 
         <input
-          type="checkbox"
+        type="checkbox"
           readOnly
           checked={this.props.task.checked}
           onClick={this.toggleChecked.bind(this)}

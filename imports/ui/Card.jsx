@@ -7,7 +7,7 @@ import flow from 'lodash/flow';
 
 const style = {
   border: '1px dashed gray',
-  padding: '0.5rem 1rem',
+  padding: '0.5rem 0.5rem',
   marginBottom: '.5rem',
   backgroundColor: 'white',
   cursor: 'move',
@@ -72,12 +72,13 @@ const cardTarget = {
 class Card extends Component {
 
   render() {
-    const { text, isDragging, connectDragSource, connectDropTarget } = this.props;
+    const { isDragging, connectDragSource, connectDropTarget } = this.props;
     const opacity = isDragging ? 0 : 1;
 
     return connectDragSource(connectDropTarget(
       <div style={{ ...style, opacity }}>
-        {text}
+
+        {this.props.children}
       </div>,
     ));
   }
@@ -90,7 +91,6 @@ Card.propTypes = {
   index: PropTypes.number.isRequired,
   isDragging: PropTypes.bool.isRequired,
   id: PropTypes.any.isRequired,
-  text: PropTypes.string.isRequired,
   moveCard: PropTypes.func.isRequired,
 };
 

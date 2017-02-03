@@ -12,7 +12,7 @@ import Task from './Task.jsx';
 
 
 const style = {
-  width: 400,
+
 };
 
 class Container extends Component {
@@ -49,6 +49,9 @@ class Container extends Component {
     const { cards } = this.state;
     const dragCard = cards[dragIndex];
 
+    console.log("Hover Index " + hoverIndex);
+    console.log("Drag Index " + dragIndex);
+
     this.setState(update(this.state, {
       cards: {
         $splice: [
@@ -57,17 +60,37 @@ class Container extends Component {
         ],
       },
     }));
+
+
+    const res = Meteor.call('tasks.getMaxIndex');
+
+    console.log(this.props.tasks);
+    Meteor.call('tasks.updateOrder', dragIndex, hoverIndex);
+
+
   }
 
-  renderCards(cards) {
+  moveCard_(dragIndex, hoverIndex) {
+    const { tasks } = this.props;
+    Meteor.call('tasks.updateOrder', dragIndex, hoverIndex);
+
+  }
+
+  renderCards() {
+
+    const cards = this.state.cards;
     return cards.map((card, i) => (
       <Card
         key={card.id}
         index={i}
         id={card.id}
-        text={card.text}
         moveCard={this.moveCard}
-      />
+        >
+        <Task
+          task = {card}
+          showPrivateButton = {true}
+          />
+      </Card>
     ));
   }
 
@@ -94,12 +117,11 @@ class Container extends Component {
   }
 
   render() {
-    const { tasks, cards } = this.state;
 
     return (
       <div style={style}>
-        {this.renderCards(cards)}
-        {this.renderTasks(tasks)}
+        {this.renderCards()}
+        {this.renderTasks()}
       </div>
     );
   }
@@ -118,7 +140,7 @@ export default createContainer(() => {
   Meteor.subscribe('tasks');
 
   return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
+    tasks: Tasks.find({}, { sort: { index: -1 } }).fetch(),
     incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     currentUser: Meteor.user(),
 
