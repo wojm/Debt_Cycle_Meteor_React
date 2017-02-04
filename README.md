@@ -23,6 +23,8 @@ TODO
  - connect task to other person
  - CSS for Debt/Credit
 
+ - Transitions when an element is moved / removed
+   - https://facebook.github.io/react/docs/animation.html
  - Highlight of individual Debt/Credit and expand on info
    - Debt created
    - Complete cycles
@@ -30,8 +32,7 @@ TODO
    - /debt/:id -> brings up specific debts
    - https://guide.meteor.com/react.html#routing
 
- - Transitions when an element is moved / removed
-   - https://facebook.github.io/react/docs/animation.html
+
 
  - Access Friends List
    - http://stackoverflow.com/questions/28050304/how-do-i-access-a-users-facebook-friends-list-in-meteor
