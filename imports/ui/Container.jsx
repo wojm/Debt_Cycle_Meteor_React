@@ -16,64 +16,11 @@ const style = {
 };
 
 class Container extends Component {
-  constructor(props) {
-    super(props);
-    this.moveCard = this.moveCard.bind(this);
-    this.state = {
-      cards: [{
-        id: 1,
-        text: 'Write a cool JS library',
-      }, {
-        id: 2,
-        text: 'Make it generic enough',
-      }, {
-        id: 3,
-        text: 'Write README',
-      }, {
-        id: 4,
-        text: 'Create some examples',
-      }, {
-        id: 5,
-        text: 'Spam in Twitter and IRC to promote it (note that this element is taller than the others)',
-      }, {
-        id: 6,
-        text: '???',
-      }, {
-        id: 7,
-        text: 'PROFIT',
-      }],
-    };
-  }
+
 
   moveCard(dragIndex, hoverIndex) {
-    const { cards } = this.state;
-    const dragCard = cards[dragIndex];
 
-    console.log("Hover Index " + hoverIndex);
-    console.log("Drag Index " + dragIndex);
-
-    this.setState(update(this.state, {
-      cards: {
-        $splice: [
-          [dragIndex, 1],
-          [hoverIndex, 0, dragCard],
-        ],
-      },
-    }));
-
-
-    const res = Meteor.call('tasks.getMaxIndex');
-
-    console.log(this.props.tasks);
     Meteor.call('tasks.updateOrder', dragIndex, hoverIndex);
-
-
-  }
-
-  moveCard_(dragIndex, hoverIndex) {
-    const { tasks } = this.props;
-    Meteor.call('tasks.updateOrder', dragIndex, hoverIndex);
-
   }
 
   renderCards() {
@@ -94,46 +41,39 @@ class Container extends Component {
     ));
   }
 
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
-
+  getFilteredTasks() {
     if (this.props.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
+      return this.props.tasks.filter(task => !task.checked);
+    } else {
+      return this.props.tasks;
     }
+  }
 
-
-    /*return filteredTasks.map((task) => {
+  renderTasks() {
+    return this.getFilteredTasks().map((task, i) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
       const showPrivateButton = task.owner === currentUserId;
 
       return (
-        <Task
-          key={task._id}
-          task={task}
-          showPrivateButton={showPrivateButton}
-        />
+        <Card
+          key = { task._id }
+          index ={ task.index }
+          moveCard ={ this.moveCard.bind(this) }
+          >
+          <Task
+            task ={ task }
+            showPrivateButton ={ showPrivateButton }
+            />
+        </Card>
       );
-    });*/
-    return filteredTasks.map((task, i) => (
-      <Card
-        key={task._id}
-        index={task.index}
-        id={task._id}
-        moveCard={this.moveCard}
-        >
-        <Task
-          task = {task}
-          showPrivateButton = {true}
-          />
-      </Card>
-    ));
+    });
   }
 
   render() {
 
     return (
       <div style={style}>
-        {this.renderTasks()}
+        { this.renderTasks() }
       </div>
     );
   }
@@ -143,7 +83,7 @@ Container.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   currentUser: PropTypes.object,
-  hideCompleted: PropTypes.bool.isRequired
+  hideCompleted: PropTypes.bool.isRequired,
 
 }
 

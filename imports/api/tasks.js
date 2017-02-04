@@ -34,7 +34,7 @@ Meteor.methods({
       text,
       createdAt: new Date(),
       owner: this.userId,
-      username: Meteor.users.findOne(this.userId).username,
+      username: Meteor.users.findOne(this.userId).name,
       index: (Tasks.find({}).count() - 1),
     });
   },
@@ -80,11 +80,10 @@ Meteor.methods({
     Tasks.update(taskId, { $set: { private: setToPrivate } });
   },
   'tasks.updateOrder'(dragIndex, hoverIndex) {
-    dragTask = Tasks.findOne({index : dragIndex});
-    hoverTask = Tasks.findOne({index : hoverIndex});
+    dragTask  = Tasks.findOne({ index : dragIndex  });
+    hoverTask = Tasks.findOne({ index : hoverIndex });
 
-    Tasks.update(dragTask, { $set : {index : hoverIndex }});
-
-    Tasks.update(hoverTask, { $set : {index : dragIndex }});
+    Tasks.update(dragTask,  { $set : {index : hoverIndex }});
+    Tasks.update(hoverTask, { $set : {index : dragIndex  }});
   },
 });

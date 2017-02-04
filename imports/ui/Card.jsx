@@ -90,7 +90,7 @@ Card.propTypes = {
   connectDropTarget: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   isDragging: PropTypes.bool.isRequired,
-  id: PropTypes.any.isRequired,
+  //id: PropTypes.any.isRequired,
   moveCard: PropTypes.func.isRequired,
 };
 
