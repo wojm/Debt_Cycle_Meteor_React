@@ -102,7 +102,7 @@ class Container extends Component {
     }
 
 
-    return filteredTasks.map((task) => {
+    /*return filteredTasks.map((task) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
       const showPrivateButton = task.owner === currentUserId;
 
@@ -113,14 +113,26 @@ class Container extends Component {
           showPrivateButton={showPrivateButton}
         />
       );
-    });
+    });*/
+    return filteredTasks.map((task, i) => (
+      <Card
+        key={task._id}
+        index={task.index}
+        id={task._id}
+        moveCard={this.moveCard}
+        >
+        <Task
+          task = {task}
+          showPrivateButton = {true}
+          />
+      </Card>
+    ));
   }
 
   render() {
 
     return (
       <div style={style}>
-        {this.renderCards()}
         {this.renderTasks()}
       </div>
     );
