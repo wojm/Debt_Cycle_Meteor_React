@@ -1,0 +1,14 @@
+{
+  "galaxy.meteor.com": {
+    "env": {
+      "ENV":"staging",
+      "MONGO_URL":          "mongodb://debtcycle-staging-meteor:debtcycle@debtcycle-shard-00-00-law0b.mongodb.net:27017,debtcycle-shard-00-01-law0b.mongodb.net:27017,debtcycle-shard-00-02-law0b.mongodb.net:27017/test?ssl=true&replicaSet=DebtCycle-shard-0&authSource=admin",
+      "MONGO_OPLOG_URL":
+      "mongodb://debtcycle-staging-oplog:debtcycle@debtcycle-shard-00-00-law0b.mongodb.net:27017,debtcycle-shard-00-01-law0b.mongodb.net:27017,debtcycle-shard-00-02-law0b.mongodb.net:27017/local?ssl=true&replicaSet=DebtCycle-shard-0&authSource=admin",
+      "METEOR_PROFILE":100,
+      "METEOR_DEBUG_BUILD":1
+
+    }
+  }
+
+}

@@ -26,7 +26,30 @@ export default class Task extends Component {
     const taskClassName = classnames({
       checked: this.props.task.checked,
       private: this.props.task.private,
+      isRequest: this.props.task.isRequest,
+      isProvider: this.props.task.isProvider,
     });
+
+    var text =           (
+      <span>
+        <strong>
+          {this.props.task.isRequest? "Requesting ": ""}
+        </strong>
+        <span>
+          {this.props.task.favor}
+        </span>
+        <span>
+          {this.props.task.isRequest? "":
+
+            <span>
+              <strong>
+                {this.props.task.isProvider? " for " : " by "}
+              </strong>
+              {this.props.task.toWhom}
+            </span>
+          }
+        </span>
+      </span>);
 
     return (
       <li className={taskClassName}>
@@ -48,7 +71,7 @@ export default class Task extends Component {
         ) : ''}
 
         <span className="text">
-          <strong>{this.props.task.username}</strong>: {this.props.task.text}
+          {text}
         </span>
       </li>
     );

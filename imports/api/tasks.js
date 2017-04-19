@@ -38,6 +38,30 @@ Meteor.methods({
       index: (Tasks.find({}).count() - 1),
     });
   },
+  'tasks.insert'(favor, toWhom, isProvider, isRequest) {
+    check(favor, String);
+    check(toWhom, String);
+    check(isProvider, Boolean);
+    check(isRequest, Boolean);
+
+
+
+    // Make sure the user is logged in before inserting a task
+    if (! this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    Tasks.insert({
+      favor,
+      toWhom: toWhom,
+      isProvider: isProvider,
+      isRequest: isRequest,
+      createdAt: new Date(),
+      owner: this.userId,
+      username: Meteor.users.findOne(this.userId).name,
+      index: (Tasks.find({}).count() - 1),
+    });
+  },
   'tasks.getMaxIndex'() {
     console.log('Hi');
     return Tasks.find({}).fetch();
