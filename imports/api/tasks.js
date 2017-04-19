@@ -41,7 +41,6 @@ Meteor.methods({
       index: max + 1,
     });
   },
-<<<<<<< HEAD
   'tasks.insert'(favor, toWhom, isProvider, isRequest) {
     check(favor, String);
     check(toWhom, String);
@@ -70,9 +69,6 @@ Meteor.methods({
     console.log('Hi');
     return Tasks.find({}).fetch();
   },
-=======
-
->>>>>>> master
 
   'tasks.remove'(taskId) {
     check(taskId, String);
