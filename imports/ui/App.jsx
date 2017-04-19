@@ -27,8 +27,6 @@ class App extends Component {
 
     // Find the text field via the React ref
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-    console.log(this.props.currentUser);
-
     Meteor.call('tasks.insert', text);
 
     // Clear form
@@ -40,29 +38,6 @@ class App extends Component {
       hideCompleted: !this.state.hideCompleted,
     });
   }
-
-
-  /*renderTasks() {
-    let filteredTasks = this.props.tasks;
-
-    if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
-    }
-
-
-    return filteredTasks.map((task) => {
-      const currentUserId = this.props.currentUser && this.props.currentUser._id;
-      const showPrivateButton = task.owner === currentUserId;
-
-      return (
-        <Task
-          key={task._id}
-          task={task}
-          showPrivateButton={showPrivateButton}
-        />
-      );
-    });
-  }*/
 
 
   render() {

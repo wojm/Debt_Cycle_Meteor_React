@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-var requestPermissions = ['public_profile', 'user_friends'];
+const requestPermissions = ['public_profile', 'user_friends'];
 
 export default class FBLogin extends Component {
   login() {
@@ -11,7 +11,7 @@ export default class FBLogin extends Component {
         if (err) {
             throw new Meteor.Error("Facebook login failed");
         }
-        console.log(Meteor.user())
+        // successful
     });
   }
 
@@ -24,7 +24,7 @@ export default class FBLogin extends Component {
   }
 
   render() {
-    var user = Meteor.user();
+    const user = Meteor.user();
 
     return (
       <div>

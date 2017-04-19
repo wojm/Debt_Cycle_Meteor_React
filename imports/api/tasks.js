@@ -30,14 +30,18 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
+    const max = Tasks.findOne({},{ sort : { index : -1 }}).index || 0;
+    const min = Tasks.findOne({},{ sort : { index :  1 }}).index || 0;
+
     Tasks.insert({
       text,
       createdAt: new Date(),
       owner: this.userId,
       username: Meteor.users.findOne(this.userId).name,
-      index: (Tasks.find({}).count() - 1),
+      index: max + 1,
     });
   },
+<<<<<<< HEAD
   'tasks.insert'(favor, toWhom, isProvider, isRequest) {
     check(favor, String);
     check(toWhom, String);
@@ -66,6 +70,9 @@ Meteor.methods({
     console.log('Hi');
     return Tasks.find({}).fetch();
   },
+=======
+
+>>>>>>> master
 
   'tasks.remove'(taskId) {
     check(taskId, String);
